@@ -1,0 +1,12 @@
+services:
+  pulsecheck:
+    build: .
+    container_name: pulsecheck
+    ports:
+      - "4000:4000"
+    volumes:
+      - pulsecheck-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  pulsecheck-data:

@@ -1,0 +1,17 @@
+{
+  "name": "pulsecheck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Image download speed tester and analytics dashboard",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w @pulsecheck/api\" \"npm run dev -w @pulsecheck/web\"",
+    "build": "npm run build -w @pulsecheck/api && npm run build -w @pulsecheck/web",
+    "start": "npm run start -w @pulsecheck/api",
+    "typecheck": "npm run typecheck -w @pulsecheck/api && npm run typecheck -w @pulsecheck/web",
+    "cli": "node speed-test.js"
+  },
+  "engines": { "node": ">=22.5" },
+  "devDependencies": { "concurrently": "^9.2.1" },
+  "license": "MIT"
+}
